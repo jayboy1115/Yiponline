@@ -16,6 +16,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Plus, Package, Info, Sparkles } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import Toast from 'react-native-toast-message';
 import { addProduct, removeProduct, resetLimitReached } from '../redux/productSlice';
 import ProductCard from '../components/ProductCard';
 import AddProductModal from '../components/AddProductModal';
@@ -50,10 +51,25 @@ const HomeScreen = () => {
 
   const handleAddProduct = (product) => {
     dispatch(addProduct(product));
+    Toast.show({
+      type: 'success',
+      text1: 'Product Added',
+      text2: `${product.name} has been added to your showcase.`,
+      position: 'bottom',
+      visibilityTime: 3000,
+    });
   };
 
   const handleDeleteProduct = (id) => {
+    const productToDelete = items.find(item => item.id === id);
     dispatch(removeProduct(id));
+    Toast.show({
+      type: 'error',
+      text1: 'Product Deleted',
+      text2: productToDelete ? `${productToDelete.name} has been removed.` : 'Product has been removed.',
+      position: 'bottom',
+      visibilityTime: 3000,
+    });
   };
 
   const renderEmptyList = () => (

@@ -8,7 +8,7 @@ Build a mobile application using React Native that allows users to manage a smal
 - **State Management**: Redux Toolkit
 - **Icons**: Lucide React Native
 - **Image Handling**: Expo Image Picker
-- **UI Enhancements**: Expo Linear Gradient, React Native Safe Area Context
+- **UI Enhancements**: Expo Linear Gradient, React Native Safe Area Context, React Native Toast Message
 - **Styling**: Standard StyleSheet with a centralized theme system
 
 ## 3. Architecture & Approach
